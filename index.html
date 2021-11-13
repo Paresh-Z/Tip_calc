@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="sub-container">
+            <form class="main-form" onsubmit="return false" id="new-form">
+                <h1 class="main-heading">Tip Calculator</h1>
+                <br><br>
+                <span> ₹ </span> <input type="number" class="bill" placeholder="Please enter your bill amount">
+                <br>
+                <br>
+                <label for="service-quality">How was your service?</label>
+
+                <select name="service-quality" class="ser-type">
+                    <option value="0"> 0% - Poor</option>
+                    <option value="10">10% - Good</option>
+                    <option value="20">20% - Better</option>
+                    <option value="30">30% - Outstanding</option>
+                </select>
+                <br>
+                <br>
+                <input type="number" class="sharing" placeholder="How many people are sharing the bill?"> <span
+                    class="people">People</span>
+                <br><br>
+                
+                <button class="calculate" onclick="tip()">
+                    Calculate!
+                </button>
+
+                <input type="reset" class="calculate1">
+                <br><br>
+            </form>
+            <div>
+                <p>TIP AMOUNT</p>
+                <p> ₹ <span id="amount">0.00</span></p>
+                <p>each</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function tip() {
+            var x = document.getElementsByClassName("bill")[0].value;
+            console.log(x);
+            var y = document.getElementsByClassName("ser-type")[0].value;
+
+            var z = (parseInt(x) * parseInt(y) / 100);
+            var people = document.getElementsByClassName("sharing")[0].value;
+            var final = (parseInt(z) / parseInt(people));
+
+            document.getElementById("amount").innerHTML = final;
+            //document.getElementById("new-form").reset();
+
+           //alert(final);
+        }
+    </script>
+</body>
+
+</html>
